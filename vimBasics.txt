@@ -1,0 +1,153 @@
+###########################################################################
+------------------------------- VIM TUTOR ---------------------------------
+###########################################################################
+
+---------------------------------------------------------------------------
+--------------------------- 1.0: VIM BASICS ------------------------------- 
+---------------------------------------------------------------------------
+1.0 Some cool resources
+-
+-
+-
+
+1.1: INFO/ ENTERING AND EXITING VIM
+
+$ vim --version
+ESC + :help w
+
+MODES -
+VIM BUFFER - where you store when you cut or delete
+1. NORMAL MODE (or to exit any other mode): ESC 
+2. EDITING MODE: i or a
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2:  MOVING AROUND
+             k            
+       < h       l >
+             j     
+             v
+
+ESC + G - end of file
+ESC + gg - start of file
+ESC + 50G - go to line 50
+ESC + 0 - go to start of line
+ESC + $ - go to end of line
+ESC + Cntl + F - go to end of page
+ESC + Cnt + B - go to start of page
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.3: DELETION/INSERTION
+
+Insert 
+- i(cursor is on last letter)
+- a or A (cursor at the next character to current cursor or end of the line)
+
+Deletion commands -
+
+0. Delete the current cursor character - x
+
+1. Delete word - cursor at the beginning of word + dw
+- Delete Multiple times 
+-- dnw
+--- Eg. abc def ghi
+    O/P ghi
+-- dne
+--- Eg. abc def ghi
+    O/P  ghi
+    (Leaves out/does not delete the last space)
+
+2. Delete till end of line - cursor at where to start delete + d$
+
+3. Delete one line - cursor at where to start delete + dd 
+- Delete multiple times
+-- ndd
+
+(All the above d commands can also be run using the change c command.
+Works exactly the same way as d)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.4: THE UNDO COMMAND
+
+To undo last command - u
+To undo all commands on the whole line - U
+To redo - Cntl + r
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.5: CUT + PASTE / REPLACE
+
+- dd
+- Place cursor where to paster
+- p
+
+- Cursor on character
+- r (To replace more than a character - R)
+- Type the character you want
+
+- Cursor on character from which you want to delete rest of the word
+- cw or dw (Now you wil be in insert mode and the rest of the word is cleaned up)
+- type the replacement
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.6: THE SEARCH COMMAND
+
+- ESC + /(forward search) or ?(backward search) + <search_phrase>
+- n or N (to go through searches, it wraps)
+
+To ignore case sensitivity
+:set ic
+
+For highlighting
+:set hls is
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.7: MATCHING PARENTHESES SEARCH
+
+- Place the cursor on any (, [, or { 
+- %
+- You move to the matching end of parenthesis
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.8: FIND AND REPLACE
+
+- First occurrence only
+ESC + :s/wrong/right
+
+- All occurrences
+-- on that particluar line: ESC + :s/wrong/right/g
+-- between two line numbers: ESC + :50/60s/wrong/right/g
+-- throughout the file: ESC + :%s/wrong/right/g
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.9: Insert a new line
+
+- o(below) or O(above)
+---------------------------------------------------------------------------
+--------------------- 2.0 FILE MANIPULATION -------------------------------
+---------------------------------------------------------------------------
+
+2.0: TO EXECUTE AN EXTERNAL SHELL COMMAND
+
+- :!<any shell command>
+-- Eg. :!ls
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.1: WRITING FILES
+
+
+ENTER - $ vim <FILENAME>
+EXIT -
+1. Dont save, just quit - :q! 
+2. Save and quit - :wq
+
+- Rename current file - :w TEST
+- Verify this - :!dir
+- Remove file - :!del TEST
+
+- To save a part of the file- 
+:startLine,endLine w TEST
+
+- To copy contents of another file and paste it at your cursor
+:r TEST
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

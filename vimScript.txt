@@ -1,0 +1,31 @@
+0. Resorces
+- Learn vim the hard way by Steve Losh (http://learnvimscriptthehardway.stevelosh.com)
+
+1. ~/.vimrc
+
+- Vim will automatically run the code inside this file every time you open Vim.
+- To find where this file exists
+-- Open any file on vim - $vim sample, :echo $MYVIMRC
+--- Will result in your homedirectory, like /Users/nikitagovind/.vimrc
+
+2. Vimscript commands
+
+- Read the :help <command> for any command, to quit help :q!
+
+1. echo, echom
+- echo prints the message. But this may not persist.
+-- :echo "Hello, world!"
+- echom prints the message and persists.
+-- :echo "Hello, world!"
+-- To see persistence - :messages ???
+
+2. Comments - "
+- Does not always work ???
+
+3. set
+- set <action>/ set no<action>/set <booleanAction>! 
+-- set number/ set number!/ set nonumber
+- What option is currently set?
+-- set number? O/P - number
+- More useful options
+-- set numberwidth=10
